@@ -28,6 +28,23 @@ local_users:
     sha512_password: "{{ ansible_password | password_hash('sha512', salt='arista') }}"
     ssh_key: "{{ lookup('ansible.builtin.file', '~/.ssh/id_rsa.pub') }}"
 
+# # sFlow
+# fabric_sflow:
+#   uplinks: true
+#   downlinks: true
+#   endpoints: true
+#   core_interfaces: true
+#   mlag_interfaces: true
+# sflow_settings:
+#   sample:
+#     rate: 10
+#   destinations:
+#     - destination: 127.0.0.1
+#       vrf: default
+#   vrfs:
+#     - name: default
+#       source_interface: Management0
+
 # AAA
 aaa_authorization:
   exec:
